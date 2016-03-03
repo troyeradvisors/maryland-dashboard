@@ -7,6 +7,9 @@ using Microsoft.AspNet.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Dashboard.Models;
+using Microsoft.Data.Entity;
+using Microsoft.AspNet.StaticFiles;
 
 namespace Dashboard
 {
@@ -16,7 +19,8 @@ namespace Dashboard
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
-                .AddJsonFile("appsettings.json");
+                .AddJsonFile("appsettings.json")
+                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
             if (env.IsEnvironment("Development"))
             {
@@ -36,6 +40,11 @@ namespace Dashboard
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
+            services.AddEntityFramework()
+             .AddSqlServer()
+             .AddDbContext<DashboardContext>(options =>
+                options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+
             services.AddMvc();
         }
 
@@ -45,15 +54,51 @@ namespace Dashboard
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
 
-            app.UseIISPlatformHandler();
-
             app.UseApplicationInsightsRequestTelemetry();
 
+            if (env.IsDevelopment())
+            {
+                app.UseBrowserLink();
+                app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
+            }
+            else
+            {
+                //app.UseExceptionHandler("/Home/Error");
+
+                // For more details on creating database during deployment see http://go.microsoft.com/fwlink/?LinkID=615859
+                try
+                {
+                    using (var serviceScope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                    {
+                        serviceScope.ServiceProvider.GetService<DashboardContext>()
+                             .Database.Migrate();
+                    }
+                }
+                catch { }
+            }
+
+            app.UseIISPlatformHandler();
             app.UseApplicationInsightsExceptionTelemetry();
-
             app.UseStaticFiles();
+            app.UseFileServer(new FileServerOptions
+            {
+                EnableDefaultFiles = true,
+                EnableDirectoryBrowsing = true,
+            });
 
-            app.UseMvc();
+            app.UseMvc(routes =>
+            {
+                //routes.MapRoute(
+                //    name: "api",
+                //    template: "api/{controller}/{action}/{id}"
+                //);
+
+                //routes.MapRoute(
+                //   name: "default",
+                //   template: "{*catchall}",
+                //   defaults: new { controller = "App", action = "Index" });
+            });
         }
 
         // Entry point for the application.
