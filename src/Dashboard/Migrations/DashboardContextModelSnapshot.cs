@@ -228,6 +228,69 @@ namespace dashboard.Migrations
                     b.HasKey("PIN", "FiscalYear");
                 });
 
+            modelBuilder.Entity("Dashboard.Models.CountyAverage", b =>
+                {
+                    b.Property<int>("CountyCode");
+
+                    b.Property<int>("FiscalYear");
+
+                    b.Property<int?>("ComprehensiveDays");
+
+                    b.Property<decimal?>("ComprehensiveRevenuePerDay");
+
+                    b.Property<decimal?>("DietaryExpensePerDay");
+
+                    b.Property<decimal?>("GovernmentAndAdministrativeExpensePerDay");
+
+                    b.Property<decimal?>("HousekeepingAndLaundryExpensePerDay");
+
+                    b.Property<int?>("MedicaidDays");
+
+                    b.Property<decimal?>("MedicaidDaysPercent");
+
+                    b.Property<decimal?>("MedicaidRevenuePerDay");
+
+                    b.Property<int?>("MedicareDays");
+
+                    b.Property<decimal?>("MedicareDaysPercent");
+
+                    b.Property<decimal?>("MedicareRevenuePerDay");
+
+                    b.Property<decimal?>("NetIncomePerDay");
+
+                    b.Property<decimal?>("NetIncomePerRevenuePercent");
+
+                    b.Property<decimal?>("NursingCareExpensePerDay");
+
+                    b.Property<decimal?>("NursingOccupancyPercent");
+
+                    b.Property<int?>("OtherComprehensiveDays");
+
+                    b.Property<decimal?>("OtherComprehensiveDaysPercent");
+
+                    b.Property<decimal?>("OtherComprehensiveRevenuePerDay");
+
+                    b.Property<decimal?>("OtherPatientCareExpensePerDay");
+
+                    b.Property<decimal?>("OtherRevenuePerDay");
+
+                    b.Property<int?>("PrivateDays");
+
+                    b.Property<decimal?>("PrivateDaysPercent");
+
+                    b.Property<decimal?>("PrivateRevenuePerDay");
+
+                    b.Property<decimal?>("PropertyExpensePerDay");
+
+                    b.Property<decimal?>("RealEstateTaxPerDay");
+
+                    b.Property<decimal?>("TotalExpensePerDay");
+
+                    b.Property<decimal?>("TotalRevenuePerDay");
+
+                    b.HasKey("CountyCode", "FiscalYear");
+                });
+
             modelBuilder.Entity("Dashboard.Models.Description", b =>
                 {
                     b.Property<int>("PIN");
@@ -652,6 +715,70 @@ namespace dashboard.Migrations
                     b.HasKey("PIN", "FiscalYear");
                 });
 
+            modelBuilder.Entity("Dashboard.Models.StateAverage", b =>
+                {
+                    b.Property<string>("State")
+                        .HasAnnotation("MaxLength", 2);
+
+                    b.Property<int>("FiscalYear");
+
+                    b.Property<int?>("ComprehensiveDays");
+
+                    b.Property<decimal?>("ComprehensiveRevenuePerDay");
+
+                    b.Property<decimal?>("DietaryExpensePerDay");
+
+                    b.Property<decimal?>("GovernmentAndAdministrativeExpensePerDay");
+
+                    b.Property<decimal?>("HousekeepingAndLaundryExpensePerDay");
+
+                    b.Property<int?>("MedicaidDays");
+
+                    b.Property<decimal?>("MedicaidDaysPercent");
+
+                    b.Property<decimal?>("MedicaidRevenuePerDay");
+
+                    b.Property<int?>("MedicareDays");
+
+                    b.Property<decimal?>("MedicareDaysPercent");
+
+                    b.Property<decimal?>("MedicareRevenuePerDay");
+
+                    b.Property<decimal?>("NetIncomePerDay");
+
+                    b.Property<decimal?>("NetIncomePerRevenuePercent");
+
+                    b.Property<decimal?>("NursingCareExpensePerDay");
+
+                    b.Property<decimal?>("NursingOccupancyPercent");
+
+                    b.Property<int?>("OtherComprehensiveDays");
+
+                    b.Property<decimal?>("OtherComprehensiveDaysPercent");
+
+                    b.Property<decimal?>("OtherComprehensiveRevenuePerDay");
+
+                    b.Property<decimal?>("OtherPatientCareExpensePerDay");
+
+                    b.Property<decimal?>("OtherRevenuePerDay");
+
+                    b.Property<int?>("PrivateDays");
+
+                    b.Property<decimal?>("PrivateDaysPercent");
+
+                    b.Property<decimal?>("PrivateRevenuePerDay");
+
+                    b.Property<decimal?>("PropertyExpensePerDay");
+
+                    b.Property<decimal?>("RealEstateTaxPerDay");
+
+                    b.Property<decimal?>("TotalExpensePerDay");
+
+                    b.Property<decimal?>("TotalRevenuePerDay");
+
+                    b.HasKey("State", "FiscalYear");
+                });
+
             modelBuilder.Entity("Dashboard.Models.Statistics", b =>
                 {
                     b.Property<int>("PIN");
@@ -671,6 +798,205 @@ namespace dashboard.Migrations
                     b.Property<int>("PrivatePayComprehensiveDays");
 
                     b.Property<int>("TotalComprehensiveDays");
+
+                    b.HasKey("PIN", "FiscalYear");
+                });
+
+            modelBuilder.Entity("Dashboard.Models.Summary", b =>
+                {
+                    b.Property<int>("PIN");
+
+                    b.Property<int>("FiscalYear");
+
+                    b.Property<int?>("AvailableDays");
+
+                    b.Property<int?>("CertifiedBedCount");
+
+                    b.Property<int>("ComprehensiveCareCustom1InsuranceDays");
+
+                    b.Property<int>("ComprehensiveCareCustom2InsuranceDays");
+
+                    b.Property<int>("ComprehensiveCareCustom3InsuranceDays");
+
+                    b.Property<decimal?>("ComprehensiveDailyCensus");
+
+                    b.Property<int?>("ComprehensiveDays");
+
+                    b.Property<decimal?>("ComprehensivePayor1DailyCensus");
+
+                    b.Property<decimal>("ComprehensivePayor1DailyCensusPercent");
+
+                    b.Property<int>("ComprehensivePayor1Days");
+
+                    b.Property<string>("ComprehensivePayor1Name");
+
+                    b.Property<decimal?>("ComprehensivePayor1Revenue");
+
+                    b.Property<decimal>("ComprehensivePayor1RevenuePerDay");
+
+                    b.Property<decimal?>("ComprehensivePayor2DailyCensus");
+
+                    b.Property<decimal>("ComprehensivePayor2DailyCensusPercent");
+
+                    b.Property<int>("ComprehensivePayor2Days");
+
+                    b.Property<string>("ComprehensivePayor2Name");
+
+                    b.Property<decimal?>("ComprehensivePayor2Revenue");
+
+                    b.Property<decimal>("ComprehensivePayor2RevenuePerDay");
+
+                    b.Property<decimal?>("ComprehensivePayor3DailyCensus");
+
+                    b.Property<decimal>("ComprehensivePayor3DailyCensusPercent");
+
+                    b.Property<int>("ComprehensivePayor3Days");
+
+                    b.Property<string>("ComprehensivePayor3Name");
+
+                    b.Property<decimal?>("ComprehensivePayor3Revenue");
+
+                    b.Property<decimal>("ComprehensivePayor3RevenuePerDay");
+
+                    b.Property<int?>("ComprehensiveRevenue");
+
+                    b.Property<decimal>("ComprehensiveRevenuePerDay");
+
+                    b.Property<decimal?>("ComprehensiveRevenuePercent");
+
+                    b.Property<decimal?>("DietaryExpense");
+
+                    b.Property<decimal>("DietaryExpensePerDay");
+
+                    b.Property<decimal?>("DietaryExpensePerRevenuePercent");
+
+                    b.Property<int?>("GovernmentAndAdministrativeExpense");
+
+                    b.Property<decimal>("GovernmentAndAdministrativeExpensePerDay");
+
+                    b.Property<decimal?>("GovernmentAndAdministrativeExpensePerRevenuePercent");
+
+                    b.Property<decimal?>("HousekeepingAndLaundryExpense");
+
+                    b.Property<decimal>("HousekeepingAndLaundryExpensePerDay");
+
+                    b.Property<decimal?>("HousekeepingAndLaundryExpensePerRevenuePercent");
+
+                    b.Property<decimal?>("ImpliedMaxValue");
+
+                    b.Property<decimal?>("ImpliedMaxValuePerBed");
+
+                    b.Property<decimal?>("ImpliedMinValue");
+
+                    b.Property<decimal?>("ImpliedMinValuePerBed");
+
+                    b.Property<decimal?>("MedicaidDailyCensus");
+
+                    b.Property<int>("MedicaidDays");
+
+                    b.Property<decimal?>("MedicaidDaysPercent");
+
+                    b.Property<int?>("MedicaidRevenue");
+
+                    b.Property<decimal>("MedicaidRevenuePerDay");
+
+                    b.Property<decimal?>("MedicareDailyCensus");
+
+                    b.Property<int>("MedicareDays");
+
+                    b.Property<decimal?>("MedicareDaysPercent");
+
+                    b.Property<decimal?>("MedicareRevenue");
+
+                    b.Property<decimal>("MedicareRevenuePerDay");
+
+                    b.Property<decimal?>("NetIncome");
+
+                    b.Property<decimal?>("NetIncomePerBed");
+
+                    b.Property<decimal>("NetIncomePerDay");
+
+                    b.Property<decimal?>("NetIncomePerRevenuePercent");
+
+                    b.Property<int?>("NursingCareExpense");
+
+                    b.Property<decimal>("NursingCareExpensePerDay");
+
+                    b.Property<decimal?>("NursingCareExpensePerRevenuePercent");
+
+                    b.Property<decimal?>("NursingOccupancyPercent");
+
+                    b.Property<int>("OperatingDays");
+
+                    b.Property<int?>("OtherCareDays");
+
+                    b.Property<decimal?>("OtherComprehensiveDailyCensus");
+
+                    b.Property<int?>("OtherComprehensiveDays");
+
+                    b.Property<decimal?>("OtherComprehensiveDaysPercent");
+
+                    b.Property<decimal?>("OtherComprehensiveRevenue");
+
+                    b.Property<decimal>("OtherComprehensiveRevenuePerDay");
+
+                    b.Property<int>("OtherPatientCareExpense");
+
+                    b.Property<decimal>("OtherPatientCareExpensePerDay");
+
+                    b.Property<decimal?>("OtherPatientCareExpensePerRevenuePercent");
+
+                    b.Property<int?>("OtherRevenue");
+
+                    b.Property<decimal>("OtherRevenuePerDay");
+
+                    b.Property<decimal?>("OtherRevenuePercent");
+
+                    b.Property<decimal?>("PrivateDailyCensus");
+
+                    b.Property<int>("PrivateDays");
+
+                    b.Property<decimal?>("PrivateDaysPercent");
+
+                    b.Property<int>("PrivateRevenue");
+
+                    b.Property<decimal>("PrivateRevenuePerDay");
+
+                    b.Property<decimal?>("PropertyExpense");
+
+                    b.Property<decimal>("PropertyExpensePerDay");
+
+                    b.Property<decimal?>("PropertyExpensePerRevenuePercent");
+
+                    b.Property<int>("RealEstateTax");
+
+                    b.Property<decimal>("RealEstateTaxPerDay");
+
+                    b.Property<decimal?>("RealEstateTaxPerRevenuePercent");
+
+                    b.Property<int>("SpecialServiceRevenue");
+
+                    b.Property<int?>("TotalDays");
+
+                    b.Property<decimal?>("TotalExpense");
+
+                    b.Property<decimal>("TotalExpensePerDay");
+
+                    b.Property<decimal?>("TotalExpensePerRevenuePercent");
+
+                    b.Property<int?>("TotalRevenue");
+
+                    b.Property<decimal>("TotalRevenuePerDay");
+
+                    b.Property<int>("UnadjustedComprehensivePayor1Revenue");
+
+                    b.Property<int>("UnadjustedComprehensivePayor2Revenue");
+
+                    b.Property<int>("UnadjustedComprehensivePayor3Revenue");
+
+                    b.Property<int?>("UnadjustedMedicareRevenue");
+
+                    b.Property<int?>("UnadjustedOtherComprehensiveRevenue");
 
                     b.HasKey("PIN", "FiscalYear");
                 });

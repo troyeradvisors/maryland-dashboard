@@ -146,6 +146,44 @@ namespace dashboard.Migrations
                     table.PrimaryKey("PK_CapitalPropertyService", x => new { x.PIN, x.FiscalYear });
                 });
             migrationBuilder.CreateTable(
+                name: "CountyAverage",
+                columns: table => new
+                {
+                    CountyCode = table.Column<int>(nullable: false),
+                    FiscalYear = table.Column<int>(nullable: false),
+                    ComprehensiveDays = table.Column<int>(nullable: true),
+                    ComprehensiveRevenuePerDay = table.Column<decimal>(nullable: true),
+                    DietaryExpensePerDay = table.Column<decimal>(nullable: true),
+                    GovernmentAndAdministrativeExpensePerDay = table.Column<decimal>(nullable: true),
+                    HousekeepingAndLaundryExpensePerDay = table.Column<decimal>(nullable: true),
+                    MedicaidDays = table.Column<int>(nullable: true),
+                    MedicaidDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicaidRevenuePerDay = table.Column<decimal>(nullable: true),
+                    MedicareDays = table.Column<int>(nullable: true),
+                    MedicareDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicareRevenuePerDay = table.Column<decimal>(nullable: true),
+                    NetIncomePerDay = table.Column<decimal>(nullable: true),
+                    NetIncomePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    NursingCareExpensePerDay = table.Column<decimal>(nullable: true),
+                    NursingOccupancyPercent = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveDays = table.Column<int>(nullable: true),
+                    OtherComprehensiveDaysPercent = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveRevenuePerDay = table.Column<decimal>(nullable: true),
+                    OtherPatientCareExpensePerDay = table.Column<decimal>(nullable: true),
+                    OtherRevenuePerDay = table.Column<decimal>(nullable: true),
+                    PrivateDays = table.Column<int>(nullable: true),
+                    PrivateDaysPercent = table.Column<decimal>(nullable: true),
+                    PrivateRevenuePerDay = table.Column<decimal>(nullable: true),
+                    PropertyExpensePerDay = table.Column<decimal>(nullable: true),
+                    RealEstateTaxPerDay = table.Column<decimal>(nullable: true),
+                    TotalExpensePerDay = table.Column<decimal>(nullable: true),
+                    TotalRevenuePerDay = table.Column<decimal>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CountyAverage", x => new { x.CountyCode, x.FiscalYear });
+                });
+            migrationBuilder.CreateTable(
                 name: "Description",
                 columns: table => new
                 {
@@ -388,6 +426,44 @@ namespace dashboard.Migrations
                     table.PrimaryKey("PK_RoutineServiceRevenue", x => new { x.PIN, x.FiscalYear });
                 });
             migrationBuilder.CreateTable(
+                name: "StateAverage",
+                columns: table => new
+                {
+                    State = table.Column<string>(nullable: false),
+                    FiscalYear = table.Column<int>(nullable: false),
+                    ComprehensiveDays = table.Column<int>(nullable: true),
+                    ComprehensiveRevenuePerDay = table.Column<decimal>(nullable: true),
+                    DietaryExpensePerDay = table.Column<decimal>(nullable: true),
+                    GovernmentAndAdministrativeExpensePerDay = table.Column<decimal>(nullable: true),
+                    HousekeepingAndLaundryExpensePerDay = table.Column<decimal>(nullable: true),
+                    MedicaidDays = table.Column<int>(nullable: true),
+                    MedicaidDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicaidRevenuePerDay = table.Column<decimal>(nullable: true),
+                    MedicareDays = table.Column<int>(nullable: true),
+                    MedicareDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicareRevenuePerDay = table.Column<decimal>(nullable: true),
+                    NetIncomePerDay = table.Column<decimal>(nullable: true),
+                    NetIncomePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    NursingCareExpensePerDay = table.Column<decimal>(nullable: true),
+                    NursingOccupancyPercent = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveDays = table.Column<int>(nullable: true),
+                    OtherComprehensiveDaysPercent = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveRevenuePerDay = table.Column<decimal>(nullable: true),
+                    OtherPatientCareExpensePerDay = table.Column<decimal>(nullable: true),
+                    OtherRevenuePerDay = table.Column<decimal>(nullable: true),
+                    PrivateDays = table.Column<int>(nullable: true),
+                    PrivateDaysPercent = table.Column<decimal>(nullable: true),
+                    PrivateRevenuePerDay = table.Column<decimal>(nullable: true),
+                    PropertyExpensePerDay = table.Column<decimal>(nullable: true),
+                    RealEstateTaxPerDay = table.Column<decimal>(nullable: true),
+                    TotalExpensePerDay = table.Column<decimal>(nullable: true),
+                    TotalRevenuePerDay = table.Column<decimal>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_StateAverage", x => new { x.State, x.FiscalYear });
+                });
+            migrationBuilder.CreateTable(
                 name: "Statistics",
                 columns: table => new
                 {
@@ -405,6 +481,112 @@ namespace dashboard.Migrations
                 {
                     table.PrimaryKey("PK_Statistics", x => new { x.PIN, x.FiscalYear });
                 });
+            migrationBuilder.CreateTable(
+                name: "Summary",
+                columns: table => new
+                {
+                    PIN = table.Column<int>(nullable: false),
+                    FiscalYear = table.Column<int>(nullable: false),
+                    AvailableDays = table.Column<int>(nullable: true),
+                    CertifiedBedCount = table.Column<int>(nullable: true),
+                    ComprehensiveCareCustom1InsuranceDays = table.Column<int>(nullable: false),
+                    ComprehensiveCareCustom2InsuranceDays = table.Column<int>(nullable: false),
+                    ComprehensiveCareCustom3InsuranceDays = table.Column<int>(nullable: false),
+                    ComprehensiveDailyCensus = table.Column<decimal>(nullable: true),
+                    ComprehensiveDays = table.Column<int>(nullable: true),
+                    ComprehensivePayor1DailyCensus = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor1DailyCensusPercent = table.Column<decimal>(nullable: false),
+                    ComprehensivePayor1Days = table.Column<int>(nullable: false),
+                    ComprehensivePayor1Name = table.Column<string>(nullable: true),
+                    ComprehensivePayor1Revenue = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor1RevenuePerDay = table.Column<decimal>(nullable: false),
+                    ComprehensivePayor2DailyCensus = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor2DailyCensusPercent = table.Column<decimal>(nullable: false),
+                    ComprehensivePayor2Days = table.Column<int>(nullable: false),
+                    ComprehensivePayor2Name = table.Column<string>(nullable: true),
+                    ComprehensivePayor2Revenue = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor2RevenuePerDay = table.Column<decimal>(nullable: false),
+                    ComprehensivePayor3DailyCensus = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor3DailyCensusPercent = table.Column<decimal>(nullable: false),
+                    ComprehensivePayor3Days = table.Column<int>(nullable: false),
+                    ComprehensivePayor3Name = table.Column<string>(nullable: true),
+                    ComprehensivePayor3Revenue = table.Column<decimal>(nullable: true),
+                    ComprehensivePayor3RevenuePerDay = table.Column<decimal>(nullable: false),
+                    ComprehensiveRevenue = table.Column<int>(nullable: true),
+                    ComprehensiveRevenuePerDay = table.Column<decimal>(nullable: false),
+                    ComprehensiveRevenuePercent = table.Column<decimal>(nullable: true),
+                    DietaryExpense = table.Column<decimal>(nullable: true),
+                    DietaryExpensePerDay = table.Column<decimal>(nullable: false),
+                    DietaryExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    GovernmentAndAdministrativeExpense = table.Column<int>(nullable: true),
+                    GovernmentAndAdministrativeExpensePerDay = table.Column<decimal>(nullable: false),
+                    GovernmentAndAdministrativeExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    HousekeepingAndLaundryExpense = table.Column<decimal>(nullable: true),
+                    HousekeepingAndLaundryExpensePerDay = table.Column<decimal>(nullable: false),
+                    HousekeepingAndLaundryExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    ImpliedMaxValue = table.Column<decimal>(nullable: true),
+                    ImpliedMaxValuePerBed = table.Column<decimal>(nullable: true),
+                    ImpliedMinValue = table.Column<decimal>(nullable: true),
+                    ImpliedMinValuePerBed = table.Column<decimal>(nullable: true),
+                    MedicaidDailyCensus = table.Column<decimal>(nullable: true),
+                    MedicaidDays = table.Column<int>(nullable: false),
+                    MedicaidDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicaidRevenue = table.Column<int>(nullable: true),
+                    MedicaidRevenuePerDay = table.Column<decimal>(nullable: false),
+                    MedicareDailyCensus = table.Column<decimal>(nullable: true),
+                    MedicareDays = table.Column<int>(nullable: false),
+                    MedicareDaysPercent = table.Column<decimal>(nullable: true),
+                    MedicareRevenue = table.Column<decimal>(nullable: true),
+                    MedicareRevenuePerDay = table.Column<decimal>(nullable: false),
+                    NetIncome = table.Column<decimal>(nullable: true),
+                    NetIncomePerBed = table.Column<decimal>(nullable: true),
+                    NetIncomePerDay = table.Column<decimal>(nullable: false),
+                    NetIncomePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    NursingCareExpense = table.Column<int>(nullable: true),
+                    NursingCareExpensePerDay = table.Column<decimal>(nullable: false),
+                    NursingCareExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    NursingOccupancyPercent = table.Column<decimal>(nullable: true),
+                    OperatingDays = table.Column<int>(nullable: false),
+                    OtherCareDays = table.Column<int>(nullable: true),
+                    OtherComprehensiveDailyCensus = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveDays = table.Column<int>(nullable: true),
+                    OtherComprehensiveDaysPercent = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveRevenue = table.Column<decimal>(nullable: true),
+                    OtherComprehensiveRevenuePerDay = table.Column<decimal>(nullable: false),
+                    OtherPatientCareExpense = table.Column<int>(nullable: false),
+                    OtherPatientCareExpensePerDay = table.Column<decimal>(nullable: false),
+                    OtherPatientCareExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    OtherRevenue = table.Column<int>(nullable: true),
+                    OtherRevenuePerDay = table.Column<decimal>(nullable: false),
+                    OtherRevenuePercent = table.Column<decimal>(nullable: true),
+                    PrivateDailyCensus = table.Column<decimal>(nullable: true),
+                    PrivateDays = table.Column<int>(nullable: false),
+                    PrivateDaysPercent = table.Column<decimal>(nullable: true),
+                    PrivateRevenue = table.Column<int>(nullable: false),
+                    PrivateRevenuePerDay = table.Column<decimal>(nullable: false),
+                    PropertyExpense = table.Column<decimal>(nullable: true),
+                    PropertyExpensePerDay = table.Column<decimal>(nullable: false),
+                    PropertyExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    RealEstateTax = table.Column<int>(nullable: false),
+                    RealEstateTaxPerDay = table.Column<decimal>(nullable: false),
+                    RealEstateTaxPerRevenuePercent = table.Column<decimal>(nullable: true),
+                    SpecialServiceRevenue = table.Column<int>(nullable: false),
+                    TotalDays = table.Column<int>(nullable: true),
+                    TotalExpense = table.Column<decimal>(nullable: true),
+                    TotalExpensePerDay = table.Column<decimal>(nullable: false),
+                    TotalExpensePerRevenuePercent = table.Column<decimal>(nullable: true),
+                    TotalRevenue = table.Column<int>(nullable: true),
+                    TotalRevenuePerDay = table.Column<decimal>(nullable: false),
+                    UnadjustedComprehensivePayor1Revenue = table.Column<int>(nullable: false),
+                    UnadjustedComprehensivePayor2Revenue = table.Column<int>(nullable: false),
+                    UnadjustedComprehensivePayor3Revenue = table.Column<int>(nullable: false),
+                    UnadjustedMedicareRevenue = table.Column<int>(nullable: true),
+                    UnadjustedOtherComprehensiveRevenue = table.Column<int>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Summary", x => new { x.PIN, x.FiscalYear });
+                });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -414,6 +596,7 @@ namespace dashboard.Migrations
             migrationBuilder.DropTable("AllowanceAndAdjustmentsToRevenue");
             migrationBuilder.DropTable("AncillaryRevenue");
             migrationBuilder.DropTable("CapitalPropertyService");
+            migrationBuilder.DropTable("CountyAverage");
             migrationBuilder.DropTable("Description");
             migrationBuilder.DropTable("Home");
             migrationBuilder.DropTable("NursingCareService");
@@ -421,7 +604,9 @@ namespace dashboard.Migrations
             migrationBuilder.DropTable("PatientCareService");
             migrationBuilder.DropTable("RoutineService");
             migrationBuilder.DropTable("RoutineServiceRevenue");
+            migrationBuilder.DropTable("StateAverage");
             migrationBuilder.DropTable("Statistics");
+            migrationBuilder.DropTable("Summary");
         }
     }
 }
