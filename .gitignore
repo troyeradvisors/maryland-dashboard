@@ -1,3 +1,14 @@
+
+## NPM Packages ##
+
+# Jspm packages
+jspm_packages
+# Typings
+typings
+
+
+### NODE ###
+
 # Logs
 logs
 *.log
@@ -32,8 +43,7 @@ node_modules
 # Optional REPL history
 .node_repl_history
 
-# Jspm packages
-jspm_packages
+
 
 
 ## Ignore Visual Studio temporary files, build results, and

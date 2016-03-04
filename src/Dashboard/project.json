@@ -40,7 +40,9 @@
 
   "exclude": [
     "wwwroot",
-    "node_modules"
+    "node_modules",
+    "jspm_packages",
+    "typings"
   ],
   "publishExclude": [
     "**.user",
