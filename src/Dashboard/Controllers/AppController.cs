@@ -8,7 +8,7 @@ using Microsoft.AspNet.Mvc;
 
 namespace Dashboard.Controllers
 {
-    public class AppController : Controller
+    public class HomeController : Controller
     {
         public IActionResult Index()
         {

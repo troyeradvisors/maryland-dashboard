@@ -1,19 +1,7 @@
-﻿import { Component, View } from 'angular2/core';
+﻿import {Component} from 'angular2/core';
 
-//create a simple angular component
 @Component({
-    selector: 'test-app'
+    selector: 'my-app',
+    template: '<h1>zxcv</h1>'
 })
-@View({
-    template: '<h4>Hello {{name}}</h4>'
-})
-export class TestApp {
-    name: string;
-    constructor() {
-        this.name = 'Angular2';
-        setTimeout(() => {
-            this.name = 'Angular2!!!'
-        }, 1500);
-    }
-}
-
+export class AppComponent { }
