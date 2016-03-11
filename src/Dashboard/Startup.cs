@@ -43,7 +43,7 @@ namespace Dashboard
             services.AddEntityFramework()
              .AddSqlServer()
              .AddDbContext<DashboardContext>(options =>
-                options.UseSqlServer(Configuration["Data:DefaultConnection:ConnectionString"]));
+                options.UseSqlServer(Configuration["Data:DashboardConnection:ConnectionString"]));
 
             services.AddMvc();
         }

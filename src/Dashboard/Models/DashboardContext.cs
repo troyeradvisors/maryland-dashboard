@@ -1,13 +1,16 @@
 using Microsoft.Data.Entity;
+using Microsoft.Data.Entity.Infrastructure;
 using Microsoft.Data.Entity.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace Dashboard.Models
 {
     public partial class DashboardContext : DbContext
     {
+        public DashboardContext(DbContextOptions options) : base(options) { }
+
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            //options.UseSqlServer(@"data source=localhost;initial catalog=marylandhome;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -101,18 +104,18 @@ namespace Dashboard.Models
             modelBuilder.Entity<Summary>(entity => entity.HasKey(e => new { e.PIN, e.FiscalYear }));
         }
 
-        public virtual DbSet<AdministrativeService> AdministrativeService { get; set; }
-        public virtual DbSet<AdministrativeServiceOther> AdministrativeServiceOther { get; set; }
-        public virtual DbSet<AllowanceAndAdjustmentsToRevenue> AllowanceAndAdjustmentsToRevenue { get; set; }
-        public virtual DbSet<AncillaryRevenue> AncillaryRevenue { get; set; }
-        public virtual DbSet<CapitalPropertyService> CapitalPropertyService { get; set; }
-        public virtual DbSet<Description> Description { get; set; }
-        public virtual DbSet<Home> Home { get; set; }
-        public virtual DbSet<NursingCareService> NursingCareService { get; set; }
-        public virtual DbSet<OperationsSummary> OperationsSummary { get; set; }
-        public virtual DbSet<PatientCareService> PatientCareService { get; set; }
-        public virtual DbSet<RoutineService> RoutineService { get; set; }
-        public virtual DbSet<RoutineServiceRevenue> RoutineServiceRevenue { get; set; }
+        public virtual DbSet<AdministrativeService> AdministrativeServices { get; set; }
+        public virtual DbSet<AdministrativeServiceOther> AdministrativeServiceOthers { get; set; }
+        public virtual DbSet<AllowanceAndAdjustmentsToRevenue> AllowanceAndAdjustmentsToRevenues { get; set; }
+        public virtual DbSet<AncillaryRevenue> AncillaryRevenues { get; set; }
+        public virtual DbSet<CapitalPropertyService> CapitalPropertyServices { get; set; }
+        public virtual DbSet<Description> Descriptions { get; set; }
+        public virtual DbSet<Home> Homes { get; set; }
+        public virtual DbSet<NursingCareService> NursingCareServices { get; set; }
+        public virtual DbSet<OperationsSummary> OperationsSummaries { get; set; }
+        public virtual DbSet<PatientCareService> PatientCareServices { get; set; }
+        public virtual DbSet<RoutineService> RoutineServices { get; set; }
+        public virtual DbSet<RoutineServiceRevenue> RoutineServiceRevenues { get; set; }
         public virtual DbSet<Statistics> Statistics { get; set; }
         public virtual DbSet<CountyAverage> CountyAverages { get; set; }
         public virtual DbSet<StateAverage> StateAverages { get; set; }
