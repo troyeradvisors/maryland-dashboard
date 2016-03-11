@@ -29,4 +29,4 @@ gulp.task('sass:watch', ['build'], function () {
 
 gulp.task('watch', ['build', 'sass:watch', 'typescript:watch', 'lite'])
 
-gulp.task('default')
+gulp.task('default', ['watch'])

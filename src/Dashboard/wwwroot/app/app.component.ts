@@ -1,7 +1,7 @@
 ﻿import {Component} from 'angular2/core';
 
 @Component({
-    selector: 'my-app',
-    template: '<h1>zxcv</h1>'
+    selector: 'dashboard',
+    templateUrl: 'app/app.component.html'
 })
 export class AppComponent { }

@@ -1,0 +1,67 @@
+﻿@import "_variables.scss";
+
+
+body {
+    font-family: $font;
+    color: $color1;
+    background: $background;
+    text-shadow: 2px 2px 2px #111;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $headerFont;
+    color: $color2;
+}
+
+h1, h2, h3 {
+    font-weight: 300;
+}
+
+h4, h5, h6 {
+    font-weight: 400;
+}
+
+@mixin header($fontSize) {
+    font-size: $fontSize;
+    @include xs() {
+        font-size: $fontSize * 1.65;
+    }
+
+    @include xxs() {
+        font-size: $fontSize * 2.5;
+    }
+
+}
+
+h1 {
+    @include header($headerSize)
+}
+
+h2 {
+    @include header($headerSize * .75)
+}
+
+h3 {
+    @include header($headerSize * .75 * .75)
+}
+
+h4 {
+    @include header($headerSize * .75 * .75)
+}
+
+h5 {
+    font-size: $fontSize * 1.5;
+}
+
+h6 {
+    font-size: $fontSize;
+}
+
+a {
+    color: $color2;
+
+    &:hover {
+        font-weight: bold;
+        cursor: pointer;
+    }
+}

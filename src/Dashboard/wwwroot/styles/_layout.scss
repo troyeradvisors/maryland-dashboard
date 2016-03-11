@@ -1,0 +1,30 @@
+﻿@import "_variables.scss";
+
+body {
+    padding: $space;
+}
+
+nav {
+    @extend .flex-center;
+    @extend .flex-align-center;
+    
+    a {
+        @extend h3;
+        white-space: nowrap;
+        color: $color1;
+        margin: 0 $space;
+        padding-bottom: $spaceDiv2;
+
+        &:hover {
+            border-bottom: .2em solid $color2;
+            color: $color2;
+            font-weight: normal;
+            margin-bottom: -.2em; // Offset border
+        }
+    }
+
+    @include xxs() {
+        flex-flow: column;
+        
+    }
+}

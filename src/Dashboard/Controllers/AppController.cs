@@ -8,7 +8,7 @@ using Dashboard.Models;
 namespace Dashboard.Controllers
 {
     [Route("api")]
-    public class AppController : BaseController
+    public class AppController : Controller
     {
         DashboardContext Context;
         public AppController(DashboardContext context)

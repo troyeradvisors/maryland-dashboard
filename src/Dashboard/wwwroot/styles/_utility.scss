@@ -1,0 +1,64 @@
+﻿@mixin xxs($max: true) {
+    @if ($max) {
+        @media (max-width: $xxs) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $xxs) {
+            @content;
+        }
+    }
+}
+
+@mixin xs($max: true) {
+    @if ($max) {
+        @media (max-width: $xs) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $xs) {
+            @content;
+        }
+    }
+}
+
+@mixin sm($max: true) {
+    @if ($max) {
+        @media (max-width: $sm) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $sm) {
+            @content;
+        }
+    }
+}
+
+@mixin md($max: true) {
+    @if ($max) {
+        @media (max-width: $md) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $md) {
+            @content;
+        }
+    }
+}
+
+@mixin lg($max: true) {
+    @if ($max) {
+        @media (max-width: $lg) {
+            @content;
+        }
+    }
+    @else {
+        @media (min-width: $lg) {
+            @content;
+        }
+    }
+}
