@@ -8,13 +8,14 @@ using Dashboard.Models;
 namespace Dashboard.Controllers
 {
     [Route("api")]
-    public class DashboardController : Controller
+    public class ApiController : Controller
     {
         DashboardContext Context;
-        public DashboardController(DashboardContext context)
+        public ApiController(DashboardContext context)
         {
             Context = context;
         }
+
         [HttpGet("FiscalYears")]
         public IQueryable<int> FiscalYears() { return Descriptions().Select(e => e.FiscalYear).Distinct().OrderByDescending(e => e); }
 

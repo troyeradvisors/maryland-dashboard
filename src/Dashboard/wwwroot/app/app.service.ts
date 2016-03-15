@@ -1,6 +1,7 @@
 ﻿import {Injectable} from 'angular2/core';
 import {Http, Response, RequestOptions, URLSearchParams} from 'angular2/http';
 import {Observable} from 'rxjs/Observable'
+import 'rxjs/Rx';
 
 import {Model} from './models/model'
 import {HomeView} from './models/home-view'
@@ -62,11 +63,14 @@ export class AppService {
             .map(response => {
                 var json = response.json()
                 if (Array.isArray(json)) {
-                    json = json.map(model => {
+                    json = json.map(j => {
                         var model = new type()
-                        if (model.load)
-                            model.load(json)
-                        return model
+                        if (model.load) {
+                            var model = new type()
+                            model.load(j)
+                            return model
+                        }
+                        return j
                     })
                 }
                 return json

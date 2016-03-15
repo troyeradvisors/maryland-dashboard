@@ -1,5 +1,7 @@
 ﻿{
-  "port": 8000,
+  "port": 63060,
   "files": [ "./wwwroot/**/*.{html,htm,css,js}" ],
-  "server": { "baseDir": "./wwwroot" }
+  "server": {
+    "baseDir": "./wwwroot"
+  }
 }

@@ -8,5 +8,10 @@
     <a [routerLink]="['Competition']">Competition</a>
     <a [routerLink]="['Search']">Search</a>
 </nav>
+
+<select>
+    <option *ngFor="#year of (fiscalYears|async)" [value]="year">{{year}}</option>
+</select>
+
 <div class="space2"></div>
 <router-outlet></router-outlet>

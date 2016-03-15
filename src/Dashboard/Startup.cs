@@ -90,7 +90,7 @@ namespace Dashboard
             app.UseFileServer(new FileServerOptions
             {
                 EnableDefaultFiles = true,
-                EnableDirectoryBrowsing = true,
+                EnableDirectoryBrowsing = false,
             });
 
             app.UseMvc(routes =>
@@ -107,7 +107,7 @@ namespace Dashboard
                 //routes.MapRoute(
                 //   name: "default",
                 //   template: "{*catchall}",
-                //   defaults: new { controller = "App", action = "Index" });
+                //   defaults: new { controller = "Home", action = "Index" });
             });
         }
 
