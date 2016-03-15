@@ -13,9 +13,9 @@ nav {
         white-space: nowrap;
         color: $color1;
         margin: 0 $space;
-        padding-bottom: $spaceDiv2;
+        padding-bottom: $spaceHalf;
 
-        &:hover {
+        &:hover, &.router-link-active {
             border-bottom: .2em solid $color2;
             color: $color2;
             font-weight: normal;

@@ -10,6 +10,7 @@ using Microsoft.Extensions.Logging;
 using Dashboard.Models;
 using Microsoft.Data.Entity;
 using Microsoft.AspNet.StaticFiles;
+using Newtonsoft.Json.Serialization;
 
 namespace Dashboard
 {
@@ -45,7 +46,12 @@ namespace Dashboard
              .AddDbContext<DashboardContext>(options =>
                 options.UseSqlServer(Configuration["Data:DashboardConnection:ConnectionString"]));
 
-            services.AddMvc();
+            services.AddMvc()
+                .AddJsonOptions(options =>
+            {
+                options.SerializerSettings.ContractResolver =
+                    new CamelCasePropertyNamesContractResolver();
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

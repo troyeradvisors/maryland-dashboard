@@ -2,7 +2,7 @@
 var $ = require('gulp-load-plugins')()
 
 
-gulp.task('build', ['typescript'], function () {
+gulp.task('build', ['typescript', 'sass'], function () {
     return gulp.src(
         [
             'node_modules/es6-shim/es6-shim.min.js',
@@ -11,7 +11,10 @@ gulp.task('build', ['typescript'], function () {
             'node_modules/angular2/bundles/angular2-polyfills.js',
             'node_modules/systemjs/dist/system.src.js',
             'node_modules/rxjs/bundles/Rx.js',
-            'node_modules/angular2/bundles/angular2.dev.js'
+            'node_modules/angular2/bundles/angular2.dev.js',
+            'node_modules/angular2/bundles/http.js',
+            'node_modules/angular2/bundles/router.js',
+            'node_modules/lodash/lodash.js'
         ]).pipe($.copy('wwwroot/lib', { prefix: 99 }))
 })
 

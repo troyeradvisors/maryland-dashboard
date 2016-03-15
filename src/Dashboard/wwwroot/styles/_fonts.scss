@@ -21,7 +21,8 @@ h4, h5, h6 {
     font-weight: 400;
 }
 
-@mixin header($fontSize) {
+@mixin header($fontSize, $color:$color2) {
+    color: $color;
     font-size: $fontSize;
     @include xs() {
         font-size: $fontSize * 1.65;
@@ -34,11 +35,11 @@ h4, h5, h6 {
 }
 
 h1 {
-    @include header($headerSize)
+    @include header($headerSize, $color2)
 }
 
 h2 {
-    @include header($headerSize * .75)
+    @include header($headerSize * .75, $color3)
 }
 
 h3 {
@@ -59,6 +60,7 @@ h6 {
 
 a {
     color: $color2;
+    text-decoration: none;
 
     &:hover {
         font-weight: bold;

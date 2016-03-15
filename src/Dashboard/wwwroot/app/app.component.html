@@ -3,8 +3,10 @@
     <img src="favicon.png"  />
 </div>
 <nav class="space">
-    <a>Executive Summary</a>
-    <a>Quality Mix</a>
-    <a>Competition</a>
-    <a>Search</a>
+    <a [routerLink]="['ExecutiveSummary']">Executive Summary</a>
+    <a [routerLink]="['QualityMix']">Quality Mix</a>
+    <a [routerLink]="['Competition']">Competition</a>
+    <a [routerLink]="['Search']">Search</a>
 </nav>
+<div class="space2"></div>
+<router-outlet></router-outlet>

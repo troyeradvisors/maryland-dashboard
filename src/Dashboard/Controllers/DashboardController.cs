@@ -8,14 +8,14 @@ using Dashboard.Models;
 namespace Dashboard.Controllers
 {
     [Route("api")]
-    public class AppController : Controller
+    public class DashboardController : Controller
     {
         DashboardContext Context;
-        public AppController(DashboardContext context)
+        public DashboardController(DashboardContext context)
         {
             Context = context;
         }
-        [HttpGet]
+        [HttpGet("FiscalYears")]
         public IQueryable<int> FiscalYears() { return Descriptions().Select(e => e.FiscalYear).Distinct().OrderByDescending(e => e); }
 
         [HttpGet("HomeViews")]
@@ -30,8 +30,8 @@ namespace Dashboard.Controllers
             return query;
         }
 
-        [HttpGet("FinanceView")]
-        public IQueryable<FinanceView> FinanceView()
+        [HttpGet("FinanceViews")]
+        public IQueryable<FinanceView> FinanceViews()
         {
             return
                 from finance in Finances()
