@@ -2,12 +2,13 @@
 
 body {
     padding: $space;
+    background: $background;
 }
 
 nav {
     @extend .flex-center;
     @extend .flex-align-center;
-    
+
     a {
         @extend h3;
         white-space: nowrap;
@@ -25,6 +26,5 @@ nav {
 
     @include xxs() {
         flex-flow: column;
-        
     }
 }

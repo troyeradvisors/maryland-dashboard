@@ -23,11 +23,9 @@ namespace Dashboard.Controllers
         public IQueryable<HomeView> HomeViews(int? year = null)
         {
             var query = from home in Homes()
-                        join description in Descriptions() on home.PIN equals description.PIN
+                        join description in Descriptions(year) on home.PIN equals description.PIN
                         orderby home.Name
                         select new HomeView() { Name = home.Name, PIN = home.PIN, FiscalYear = description.FiscalYear, CountyCode = home.CountyCode };
-            if (year.HasValue)
-                query = query.Where(e => e.FiscalYear == year);
             return query;
         }
 
@@ -84,7 +82,13 @@ namespace Dashboard.Controllers
         [HttpGet("CountyAverages")]
         public IQueryable<CountyAverage> CountyAverages() { return Context.CountyAverages; }
         [HttpGet("Descriptions")]
-        public IQueryable<Description> Descriptions() { return Context.Descriptions; }
+        public IQueryable<Description> Descriptions(int? year = null)
+        {
+            var query = Context.Descriptions.AsQueryable();
+            if (year.HasValue)
+                query = query.Where(e => e.FiscalYear == year);
+            return query;
+        }
         [HttpGet("StateAverages")]
         public IQueryable<StateAverage> StateAverages() { return Context.StateAverages; }
     }

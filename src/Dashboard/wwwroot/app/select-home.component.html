@@ -1,0 +1,7 @@
+﻿<select [(ngModel)]="year">
+    <option *ngFor="#year of (years|async)" [value]="year">{{year}}</option>
+</select>
+
+<select [(ngModel)]="homeView">
+    <option *ngFor="#home of homeViews | async " [value]="home">{{home.name}}</option>
+</select>

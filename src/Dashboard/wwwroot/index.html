@@ -22,7 +22,6 @@
     <script src="lib/router.js"></script>
     <script src="lib/http.js"></script>
     <!--<script src="lib/lodash.js"></script>-->
-
     <!-- 2. Configure SystemJS -->
     <script>
         System.config({
@@ -30,7 +29,8 @@
                 app: {
                     format: 'register',
                     defaultExtension: 'js'
-                }
+                },
+                lib: { defaultExtension: 'js' }
             }
         });
         System.import('app/main')

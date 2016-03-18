@@ -1,6 +1,34 @@
 ﻿var gulp = require('gulp-npm-run')(require('gulp'))
 var $ = require('gulp-load-plugins')()
+var browserSync = require('browser-sync')
+var historyFallback = require('connect-history-api-fallback');
+var url = require('url')
+var proxy = require('proxy-middleware')
 
+var src = {
+    scss: './wwwroot/**/*.scss',
+    html: './wwwroot/**/*.html',
+    js: './wwwroot/app/**/*.js'
+}
+
+gulp.task('default', ['serve'])
+
+gulp.task('serve', ['build', 'typescript:watch'], function () {
+    var proxyOptions = url.parse('http://localhost:4000/api');
+    proxyOptions.route = '/api';
+    browserSync({
+        server: {
+            baseDir: './wwwroot/',
+            proxy: "localhost:4000",
+            middleware: [proxy(proxyOptions), historyFallback({ "index": '/index.html' })],
+            index: 'index.html'
+        }
+    })
+
+    gulp.watch(src.scss, ['sass']);
+    gulp.watch(src.html).on('change', browserSync.reload);
+    gulp.watch(src.js).on('change', browserSync.reload);
+});
 
 gulp.task('build', ['typescript', 'sass'], function () {
     return gulp.src(
@@ -23,13 +51,7 @@ gulp.task('sass', function () {
         .pipe($.sourcemaps.init())
         .pipe($.sass().on('error', $.sass.logError))
         .pipe($.sourcemaps.write())
+        .pipe($.autoprefixer('last 2 version'))
         .pipe(gulp.dest('./wwwroot'))
+        .pipe(browserSync.reload({ stream: true }));
 })
-
-gulp.task('sass:watch', ['build'], function () {
-    gulp.watch('./wwwroot/**/*.scss', ['sass']);
-})
-
-gulp.task('watch', ['build', 'sass:watch', 'typescript:watch', 'lite'])
-
-gulp.task('default', ['watch'])
